@@ -1,8 +1,10 @@
 FROM webdevops/base:ubuntu-15.04
 
+MAINTAINER Edaurdo Pinuaga <info@did-web.com>
+
 ADD . /var/www/html
 RUN apt-get update && \
-    apt-get  install -y vim 
+    apt-get  install -y vim
 
 
 
