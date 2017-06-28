@@ -1,5 +1,5 @@
 web:
-  build: .
+  image: pinuaga/ubuntu_php_mysql
   command: php -S 0.0.0.0:8000 -t /var/www/html
   links:
     - db
@@ -7,8 +7,6 @@ web:
     - "8000:8000"
   volumes:
     - .:/var/www/html
-    - ./confphp:/etc/php5/apache2/conf.d/php.ini
-    - ./confphp:/usr/local/etc/php/php.ini
 db:
   image: mysql
   ports:
