@@ -1,0 +1,20 @@
+web:
+  build: .
+  command: php -S 0.0.0.0:8000 -t /var/www/html
+  links:
+    - db
+  ports:
+    - "8000:8000"
+  volumes:
+    - .:/var/www/html
+    - ./confphp:/etc/php5/apache2/conf.d/php.ini
+    - ./confphp:/usr/local/etc/php/php.ini
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_USER: root
+    MYSQL_PASSWORD: 123456
+    MYSQL_DATABASE: myapp
